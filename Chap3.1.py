@@ -1,3 +1,5 @@
+import turtle
+
 def main():
     #demo4()
     #demo5()
@@ -5,11 +7,89 @@ def main():
     #demo7()
     #demo8()
     #demo9()
-    demo10()
+    #demo10()
+    #turtle_demo1()
+    turtle_demo2()
+
+def draw_circle(x, y, color, radius):
+    turt = turtle.Turtle()
+    turt.ht()
+    turt.penup()
+    turt.goto(x, y)
+    turt.pendown()
+    turt.fillcolor(color)
+    turt.begin_fill()
+    turt.circle(radius)
+    turt.end_fill()
+
+def turtle_demo2():
+
+    turtle1 = turtle.Turtle()
+    turtle2 = turtle.Turtle()
+    turtle.bgcolor("light blue")
+    turtle1.shape("turtle")
+    turtle2.shape("square")
+    turtle1.forward(200)
+    turtle1.left(180)
+    if turtle1.heading() == 0:
+        turtle1.write("I am facing right")
+    elif turtle1.heading() == 180:
+        turtle1.write("I am facing left")
+    draw_circle(100, 100, "green", 100)
+    turtle.done()
+
+
+def turtle_demo1():
+    turtle1 = turtle.Turtle()
+    turtle2 = turtle.Turtle()
+    turtle1.shape("turtle")
+    turtle2.shape("square")
+
+    turtle2.left(90)
+    turtle1.forward(200)
+    turtle2.forward(200)
+    turtle1.right(90)
+    turtle1.forward(200)
+    turtle1.setheading(180)
+    turtle1.penup()
+    turtle1.forward(50)
+    turtle1.pendown()
+    turtle1.forward(50)
+    turtle1.penup()
+    turtle1.forward(50)
+    turtle1.pendown()
+    turtle1.forward(50)
+    turtle1.penup()
+    turtle1.forward(50)
+    turtle1.pensize(10)
+    turtle1.pencolor("blue")
+    turtle1.pendown()
+    turtle1.forward(50)
+    turtle1.penup()
+    turtle1.forward(50)
+    turtle1.pendown()
+    turtle1.forward(50)
+    turtle1.setheading(90)
+    turtle1.fillcolor("red")
+
+    turtle1.begin_fill()
+    turtle1.circle(100)
+    turtle1.end_fill()
+
+    turtle1.penup()
+    turtle1.ht()
+    turtle1.goto(0, 200)
+    turtle1.pendown()
+    turtle1.circle(100)
+    turtle1.st()
+    turtle1.write("I am writing text in the turtle")
+
+    turtle.done()
 
 def demo10():
     sales = 15000
-    sales_quota = sales > 10000
+    MIN_SALES = 10000
+    sales_quota = sales > MIN_SALES
     if sales_quota:
         print("Quota met")
     else:
