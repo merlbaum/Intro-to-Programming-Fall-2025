@@ -1,0 +1,64 @@
+import os
+MAX_NUM = 10
+
+emp_file = open("employees.csv", "a")
+emp_file.write("THIS IS A TEST")
+def demo9():
+    found = False
+    search = input("Which employee number do you wish to delete: ")
+    emp_file = open("employees.csv", "r")
+    temp_file = open("temp_file.txt", "w")
+    for line in emp_file:
+        emp_rec = line.split(",")
+        if emp_rec[1] != search:
+            temp_file.write(line)
+        else:
+            found = True
+    emp_file.close()
+    temp_file.close()
+    os.remove("employees.csv")
+    os.rename("temp_file.txt", "employees.csv")
+    if found:
+        print("Employee file updated.")
+demo9()
+
+def main():
+    print(MAX_NUM)
+    num = 50
+    x, y = demo4()
+    z, w = (5, 10)
+    print(x, y)
+    line = "Chaim Jones,2345,Computers"
+    line = line.split(",")
+    print(line[0])
+    print(line[2])
+
+def demo4():
+    return 1, 2
+
+    # def demo2():
+    #     #global max_num
+    #     #MAX_NUM = 5
+    #     nonlocal num
+    #     num = 20
+    #     print(MAX_NUM)
+    #
+    # demo2()
+    print(num)
+    print(MAX_NUM)
+
+def func1(x, y= 3, z= 5):
+    print(x, y, z)
+
+#func1(10, z = 1)
+
+
+def demo1():
+    number = '613   '
+    num = int(number)
+    print(num)
+    b = bool("0")
+    print(b)
+
+
+main()
