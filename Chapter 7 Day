@@ -1,0 +1,253 @@
+import random
+
+def main():
+    #demo1()
+    #demo2()
+    #demo3()
+    #demo4()
+    #demo5()
+    #demo6()
+    #list_append()
+    #demo7()
+    #demo8()
+    #demo9()
+    #demo10()
+    demo11()
+
+def demo11():
+    foods = ['Pizza', 'Burgers', 'Chips', 'Donuts', "Kugel"]
+    outfile = open("foods.txt", 'w')
+    outfile.writelines(foods)
+    outfile.close()
+    outfile = open("foods1.txt", 'w')
+    for food in foods:
+        outfile.write(food + '\n')
+    outfile.close()
+    infile = open("foods1.txt", 'r')
+    foods1 = infile.readlines()
+    for i in range(len(foods1)):
+        foods1[i] = foods1[i].rstrip('\n')
+    print(foods1)
+    infile.close()
+
+    infile = open("foods1.txt", 'r')
+    foods2 = []
+    for food in infile:
+        foods2.append(food.rstrip('\n'))
+    print(foods2)
+
+
+def avg_list(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total/len(nums)
+
+
+def sum_list(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total
+
+
+def copy_list(original_list):
+    new_list = []
+    for item in original_list:
+        new_list.append(item)
+    return new_list
+
+def double_list(nums):
+    new_list = []
+    for num in nums:
+        new_list.append(num * 2)
+    return new_list
+
+def double_list2(nums):
+    for i in range(len(nums)):
+        nums[i] *= 2
+
+
+
+def demo10():
+    nums1 = [1, 2, 3, 4, 5, 6]
+    nums2 = nums1
+    print(f"nums1 = {nums1}      nums2 = {nums2}")
+    nums1[3] *= 2
+    print(f"nums1 = {nums1}      nums2 = {nums2}")
+    nums3 = copy_list(nums1)
+    nums1[2] *= 2
+    print(f"nums1 = {nums1}      nums3 = {nums3}")
+    nums4 = [] + nums1
+    nums1[4] *= 2
+    print(f"nums1 = {nums1}      nums4 = {nums4}")
+    print(f"nums1 summed up is {sum_list(nums1)}.")
+    print(f"nums1 averaged is {avg_list(nums1)}.")
+    nums1 = double_list(nums1)
+    print(f"nums1 = {nums1}.")
+    double_list2(nums1)
+    print(f"nums1 = {nums1}.")
+
+
+def demo9():
+    foods = ['Pizza', 'Burgers', 'Chips', 'Donuts']
+    new_food = "Rice"
+    foods.insert(2, new_food)
+    print(foods)
+    foods.insert(2, input("Enter new food to insert into list: "))
+    print(foods)
+    foods.sort()
+    print(foods)
+    food = input("What food should be removed from list? ")
+    try:
+        foods.remove(food)
+    except ValueError:
+        print(f"{food} is not in the list.")
+    print(foods)
+    index = int(input("What number food should be removed: "))
+    try:
+        del foods[index]
+    except IndexError:
+        print(f"Index {index} is out of range!")
+    print(foods)
+    print(f"Lowest food is {min(foods)}")
+    print(f"Highest food is {max(foods)}")
+
+
+def demo8():
+    foods = ['Pizza', 'Burgers', 'Chips', 'Donuts']
+    print(foods)
+    item = input("Enter item to order: ")
+    try:
+        item_index = foods.index(item)
+        print(f"{item} is in the list at index {item_index}")
+    except ValueError:
+        print(f"Item {item} is not found in the list!")
+
+
+def demo7():
+    names = ["Yehuda", "Shimon", "Yochanan", "Yonatan", "Elazar"]
+    print("Yochanan" in names)
+    print(names.index("Yochanan"))
+    print("Yochi" in names)
+    print(names.index("Yochi"))
+
+
+def list_append():
+    name_list = []
+    again = True
+    while again:
+        name = input("Enter a name for the list: ")
+        name_list.append(name)
+        again = input("Do you want to enter another name(Y/N): ") == 'Y'
+    print(f"Here is you list: \n {name_list}")
+
+
+
+def demo6():
+    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    num = -6
+    print(num in nums)
+    nums = [5, 10, 4, 2, 0, 15, 3, 9, 1, 11]
+    num = 20
+    if num in nums:
+        print(f"{num} is in the list of {nums}")
+    else:
+        print(f"{num} is not in the list of {nums}")
+
+    nums.append(99)
+    print(nums)
+
+
+def demo5():
+    num1 = 5
+    num2 = 10
+    num3 = 15
+    nums = [num1, num2, num3]
+    print(nums)
+    num1 = 20
+    print(nums)
+    for num in nums:
+        print(f"num = {num} before the doubling")
+        num *= 2
+        print(f"num = {num} after the doubling")
+    print(f"nums list after the doubling =  {nums}")
+    print("-----------------")
+    for i in range(len(nums)):
+        print(f"nums[{i}] = {nums[i]} before the doubling")
+        nums[i] *= 2
+        print(f"nums[{i}] = {nums[i]} after the doubling")
+    print(f"nums list after the doubling =  {nums}")
+
+def demo4():
+    nums1 = [1, 2, 3]
+    nums2 = [4, 5, 6]
+    nums3 = nums1 + nums2
+    print(nums3)
+    nums3 += nums1
+    print(nums3)
+    nums4 = nums3[3:7]
+    print(nums4)
+    nums4 = nums3[3:-1]
+    print(nums4)
+    print(nums3[3:10])
+    print(nums3[:5])
+    print(nums3[5:])
+    print(f"nums list {nums3}")
+    print(nums3[0:10:2])
+    print(nums3[8::-1])
+
+
+def demo3():
+    nums = [5, 10, 15, 3, 0, 6, -5]
+    names = ["Yehuda", "Shimon", "Yochanan", "Yonatan", "Elazar"]
+    print(nums)
+    nums[3] = 99
+    print(nums)
+    nums2 = nums
+    nums2[4] = 999
+    print(nums2)
+    num1 = 5
+    num2 = num1
+    num2 = 10
+    print(num1, num2)
+    print(nums)
+
+def demo2():
+    nums = [5, 10, 15, 3, 0, 6, -5]
+    names = ["Yehuda", "Shimon", "Yochanan", "Yonatan", "Elazar"]
+    print(len(nums))
+    print(len(names))
+    for n in nums:
+        print(n, end=" ")
+    print("------------")
+    print(f"nums[0] = {nums[0]}")
+    print(f"nums[1] = {nums[1]}")
+    print(f"nums[2] = {nums[2]}")
+    #print(f"nums[len(nums)] = {nums[len(nums)]}")
+    print("-----------------")
+    for i in range(len(nums)):
+        print(f"nums[{i}] = {nums[i]}")
+    print("---------------")
+    print(f"nums[-1] = {nums[-1]} nums[-2] = {nums[-2]}")
+    print(f"nums[-1] = {nums[len(nums) - 1]} nums[-2] = {nums[len(nums) - 8]}")
+    print("-----------------")
+    i = 0
+    while i < len(nums):
+        print(f"nums[{i}] = {nums[i]}")
+        i += 1
+
+
+def demo1():
+    nums = [5, 10, 15, 3, 0, 6, -5]
+    names = ["Yehuda", "Shimon", "Yochanan", "Yonatan", "Elazar"]
+    print(nums)
+    print(names)
+    random_objects = [1, 7.8, "Hello", random.randint(1, 100), True]
+    print(random_objects)
+    nums = [0] * 5
+    print(nums)
+    nums = [1, 2, 3] * 5
+    print(nums)
+
+main()
