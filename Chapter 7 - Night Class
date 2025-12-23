@@ -1,0 +1,203 @@
+
+def main():
+    #demo1()
+    #demo2()
+    #demo3()
+    #demo4()
+    #demo5()
+    #demo6()
+    #list_append()
+    #demo7()
+    #demo8()
+    #demo9()
+    #demo10()
+    #demo11()
+    #demo12()
+    #demo13()
+    #demo14()
+    demo15()
+
+def demo15():
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    outfile = open("Chashmonaim.txt", "w")
+    outfile.writelines(names)
+    outfile.close()
+    outfile = open("Chashmonaim2.txt", "w")
+    for name in names:
+        outfile.write(f"{name}\n")
+    outfile.close()
+    infile = open("Chashmonaim2.txt", 'r')
+    names2 = infile.readlines()
+    print(names2)
+
+
+def double_list(nums):
+    # # Will not change original list
+    # for num in nums:
+    #     num *= 2
+    for i in range(len(nums)):
+        nums[i] *= 2
+
+def double_list_ver2(nums):
+    new_list = []
+    for num in nums:
+         new_list.append(num * 2)
+    return new_list
+
+def demo14():
+    nums1 = [1, 2, 3, 4]
+    double_list(nums1)
+    print(nums1)
+    nums1 = double_list_ver2(nums1)
+    print(nums1)
+    print(avg_list(nums1))
+    print(avg_list2(nums1))
+
+def sum_list(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total
+
+def avg_list(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total / len(nums)
+
+def avg_list2(nums):
+    total = 0
+    for num in nums:
+        total += num
+    lowest = min(nums)
+    return (total - lowest) / (len(nums) - 1)
+
+
+def copy_list(orig_list):
+    new_list = []
+    for item in orig_list:
+        new_list.append((item))
+    return new_list
+
+def demo13():
+    nums1 = [5, 10, 4, 2, 0, 15]
+    nums2 = nums1
+    print(f"nums1 = {nums1}")
+    print(f"nums2 = {nums2}")
+    print("---------------")
+    nums1[2] *= 2
+    print(f"nums1 = {nums1}")
+    print(f"nums2 = {nums2}")
+    print("-------------")
+    nums3 = copy_list(nums1)
+    nums1[3] *= 2
+    print(f"nums1 = {nums1}")
+    print(f"nums3 = {nums3}")
+    print(f"The total of nums1 = {sum_list(nums1)}")
+    print(f"The average of nums1 = {avg_list(nums1)}")
+
+
+def demo12():
+        nums = [5, 10, 4, 2, 0, 15]
+        names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+        for n in nums:
+            print(n, end=" ")
+        print("-----------")
+        for name in names:
+            name += " the Maccabi"
+            print(name, end=" ")
+        print()
+        print(names)
+        print("\n-------------")
+        for i in range(len(names)):
+            names[i] += " the Maccabi"
+            print(f"names[{i}] = {names[i]}", sep=",", end=" ")
+        print()
+        print(names)
+
+
+def demo11():
+    nums = [5, 10, 4, 2, 0, 15, 3, 9, 1, 11]
+    print(max(nums))
+    print(min(nums))
+
+
+
+def demo10():
+    # Create a list with some items.
+    food = ['Pizza', 'Burgers', 'Chips']
+
+    # Display the list.
+    print('Here are the items in the food list:')
+    print(food)
+
+    # Get the item to remove.
+    item = input('Which item should I remove? ')
+
+    try:
+        food.remove(item)
+        # Display the list.
+        print('Here is the revised list:')
+        print(food)
+    except ValueError:
+        print('That item was not found in the list.')
+    remove_index = int(input("Which index should be removed? "))
+    if remove_index < len(food):
+        del food[remove_index]
+    else:
+        print("Invalid index")
+    print(food)
+
+def demo9():
+    nums = [5, 10, 4, 2, 0, 15, 3, 9, 1, 11]
+    print(nums)
+    num = int(input("What number do you want to add to the list: "))
+    pos = int(input("Where do you want to add it? "))
+    nums.insert(pos, num)
+    print(nums)
+    print("Here are the numbers sorted")
+    nums.sort()
+    print(nums)
+    print("Here are the numbers reversed")
+    nums.reverse()
+    print(nums)
+    nums.remove(5)
+    print(nums)
+    #nums.remove(20)
+    print(nums)
+
+def demo8():
+    # Create a list with some items.
+    food = ['Pizza', 'Burgers', 'Chips']
+
+    # Display the list.
+    print('Here are the items in the food list:')
+    print(food)
+
+    # Get the item to change.
+    item = input('Which item should I change? ')
+
+    try:
+        # Get the item's index in the list.
+        item_index = food.index(item)
+
+        # Get the value to replace it with.
+        new_item = input('Enter the new value: ')
+
+        # Replace the old item with the new item.
+        food[item_index] = new_item
+
+        # Display the list.
+        print('Here is the revised list:')
+        print(food)
+    except ValueError:
+        print('That item was not found in the list.')
+
+
+def demo7():
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    print("Yonatan" in names)
+    print(names.index("Yonatan"))
+    print("Yoni" in names)
+    print(names.index("Yoni"))
+
