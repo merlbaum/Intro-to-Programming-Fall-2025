@@ -12,7 +12,85 @@ def main():
     #demo8()
     #demo9()
     #demo10()
-    demo11()
+    #demo11()
+    #demo12()
+    #demo13()
+    #demo14()
+    demo15()
+
+def demo15():
+    tup = (1, 2, 3)
+    print(tup)
+    print(tup[1])
+    #tup.append(5)
+    #tup[1] = 5
+    tup = (1,)
+    l1 = [1, 2, 3]
+    l2 = [4, 5, 6]
+    tup1 =(l1, l2)
+    print(tup1)
+    tup1[0].append(5)
+    print(tup1)
+    #tup1[0] = 5
+    l1.append(99)
+    print(tup1)
+
+def demo14():
+    ROWS = 5
+    COLS = 4
+    values = []
+    for r in range(ROWS):
+        col = []
+        for c in range(COLS):
+            col.append(0)
+        values.append(col)
+    for row in range(len(values)):
+        for col in range(len(values[row])):
+            print(f"{values[row][col]:3d}", end=" ")
+        print()
+    print(values)
+    print("===============")
+    values = [[0] * 4] * 5
+    values[1][2] = 99
+    print(values)
+    values = []
+    for row in range(ROWS):
+        val = [0] * 4
+        values.append(val)
+    values[1][2] = 99
+
+    print(values)
+
+
+def demo13():
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+    print(matrix[2][1])
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            print(f"{matrix[row][col]:3d}", end=" ")
+        print()
+
+    ROWS = 5
+    COLS = 4
+    values = []
+    for r in range(ROWS):
+        col = []
+        for c in range(COLS):
+            col.append(random.randint(0, 100))
+        values.append(col)
+    for row in range(len(values)):
+        for col in range(len(values[row])):
+            print(f"{values[row][col]:3d}", end=" ")
+        print()
+    print(values)
+
+def demo12():
+    with open('numbers.txt', 'r') as infile:
+        nums = infile.readlines()
+    print(nums)
+    for i in range(len(nums)):
+        nums[i] = int(nums[i])
+    print(nums)
 
 def demo11():
     foods = ['Pizza', 'Burgers', 'Chips', 'Donuts', "Kugel"]
