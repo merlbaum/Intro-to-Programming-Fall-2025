@@ -1,10 +1,11 @@
+TAX_RATE = .0825
 
 def main():
     #demo1()
     #demo2()
     #demo3()
     #demo4()
-    #demo5()
+    #print(demo5())
     #demo6()
     #list_append()
     #demo7()
@@ -15,7 +16,71 @@ def main():
     #demo12()
     #demo13()
     #demo14()
-    demo15()
+    #demo15()
+    #demo16()
+    demo17()
+    #demo18()
+
+def demo18():
+
+    my_tuples = (1, 2, 3, 4, TAX_RATE)
+    print(my_tuples)
+    #my_tuples.append(5)
+    print(my_tuples[2])
+    tuple2 = (1,)
+    print(tuple2)
+    my_list = list(my_tuples)
+    my_list.append(5)
+    print(my_list)
+    my_tuples = tuple(my_list)
+    print(my_tuples)
+    tuple_list = ([1,2], [3, 4])
+    list_of_tuples = [("A", 20), ("B",30)]
+    list_of_tuples.extend([("C", 40)])
+    print(list_of_tuples)
+    print(list_of_tuples[1][0])
+    for i in range(len(list_of_tuples)):
+        for j in range(len(list_of_tuples[i])):
+            print(list_of_tuples[i][j], end=" ")
+        print()
+    ##tuple_list.append([5,6])
+    
+
+import random
+def demo17():
+    matrix_nums = [[1, 2, 3, 7], [4, 5, 6, 9], [7, 8, 9, 10], [10, 11, 12, 15]]
+    for row in range(len(matrix_nums)):
+        for col in range(len(matrix_nums[row])):
+            print(matrix_nums[row][col], end=" ")
+        print()
+    for row in range(len(matrix_nums)):
+        #for col in range(len(matrix_nums[row])):
+            print(matrix_nums[row][row], end=" ")
+    print()
+    for row in range(len(matrix_nums)):
+        #for col in range(len(matrix_nums[row])):
+            print(matrix_nums[row][-(1+row)], end=" ")
+    print()
+    ROWS = 5
+    COLS = 4
+    values =[]
+    for r in range(ROWS):
+        col = []
+        for c in range(COLS):
+            col.append(random.randint(1, 100))
+        values.append(col)
+    print(values)
+
+
+def demo16():
+    infile = open("numbers.txt", 'r')
+    nums = infile.readlines()
+    infile.close()
+    print(nums)
+    for i in range(len(nums)):
+        nums[i] = int(nums[i])
+    print(nums)
+
 
 def demo15():
     names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
@@ -29,6 +94,18 @@ def demo15():
     infile = open("Chashmonaim2.txt", 'r')
     names2 = infile.readlines()
     print(names2)
+    for i in range(len(names2)):
+        names2[i] = names2[i].rstrip("\n")
+    print(names2)
+    infile.close()
+    #Alternate way
+    infile = open("Chashmonaim2.txt", 'r')
+    names2 = []
+    for name in infile:
+        name = name.rstrip("\n")
+        names2.append(name)
+    print(names2)
+    infile.close()
 
 
 def double_list(nums):
@@ -90,6 +167,7 @@ def demo13():
     print(f"nums2 = {nums2}")
     print("-------------")
     nums3 = copy_list(nums1)
+    nums3 = [] + nums1
     nums1[3] *= 2
     print(f"nums1 = {nums1}")
     print(f"nums3 = {nums3}")
@@ -201,3 +279,108 @@ def demo7():
     print("Yoni" in names)
     print(names.index("Yoni"))
 
+
+def list_append():
+    name_list = []
+    again = True
+    while again:
+        name = input("Enter a name for the list: ")
+        name_list.append(name)
+        again = input("Do you want to enter a another name(Y or N):") == 'Y'
+    print("Here are your names")
+    print(name_list)
+
+
+
+def demo6():
+    nums = [5, 10, 4, 2, 0, 15, 3, 9, 1, 11]
+    num = 2
+    if num in nums:
+        print(f"{num} is in the list of {nums}")
+    else:
+        print(f"{num} is not in the list of {nums}")
+
+    nums.append(99)
+    print(nums)
+
+
+def demo5():
+    nums = [5, 10, 4, 2, 0, 15, 3, 9, 1, 11]
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    print(nums[2:5])
+    print(names[1:4])
+    print(names[2:])
+    print(nums[:3])
+    print(nums[2:8:2])
+    print(nums[:-4])
+    print(nums[-4:2:-1])
+    print(nums[5:-2])
+    print(nums[-2:-6:-1])
+    print(3 in nums)
+
+
+def demo4():
+    nums1 = [5, 10, 4]
+    nums2 = [3, 8, 7]
+    nums3 = nums1 + nums2
+    print(nums3)
+    nums3 += nums1
+    print(nums3)
+
+
+def demo3():
+    nums = [5, 10, 4, 2, 0, 15]
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    print(nums)
+    nums[3] = 99
+    print(nums)
+    nums2 = nums
+    print(nums2)
+    nums2[4] = 999
+    print(nums2)
+    print(nums)
+    num1 = 5
+    num2 = num1
+    print(num1, num2)
+    num2 = 10
+    print(num1, num2)
+
+
+def demo2():
+    nums = [5, 10, 4, 2, 0, 15]
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    for n in nums:
+        print(n, end=" ")
+    print("-----------")
+    for name in names:
+        print(name, end=" ")
+    print("\n-------------")
+    print(f"nums[0] = {nums[0]}")
+    print(f"nums[1] = {nums[1]}")
+    print(f"length = {len(nums)}")
+    #print(nums[len(nums)])
+    for i in range(len(nums)):
+        print(f"nums[{i}] = {nums[i]}")
+    print("-------------")
+    print(nums[-1], nums[-2])
+    print(nums[len(nums)-1], nums[len(nums)-2])
+    print("-------------")
+    i = 0
+    while i <= len(nums):
+        print(f"nums[{i}] = {nums[i]}")
+        i += 1
+
+
+def demo1():
+    nums = [5, 10, 4, 2, 0, 15]
+    names = ["Yehudah", "Shimon", "Yonatan", "Yochanan", "Elazar"]
+    print(nums)
+    print(names)
+    random_objects = [1, 5, "Hello", 5.6, True]
+    print(random_objects)
+    nums = [0] * 5
+    print(nums)
+    nums = [1, 2, 3] * 5
+    print(nums)
+
+main()
