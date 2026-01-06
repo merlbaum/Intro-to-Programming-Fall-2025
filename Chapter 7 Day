@@ -1,10 +1,12 @@
+
+
 import random
 
 def main():
     #demo1()
     #demo2()
     #demo3()
-    #demo4()
+    print(demo4())
     #demo5()
     #demo6()
     #list_append()
@@ -16,7 +18,20 @@ def main():
     #demo12()
     #demo13()
     #demo14()
-    demo15()
+    #demo15()
+    tup = demo16()
+    num1, num2, num3 = tup
+    print(tup)
+    print(num1, num2, num3)
+    num1, num2, num3 = [1, 2, 5]
+    print(num1, num2, num3)
+    print(power(2, 4))
+
+def power(base, exp= 3):
+    return base ** exp
+
+def demo16():
+    return 1, 2, 3
 
 def demo15():
     tup = (1, 2, 3)
@@ -33,7 +48,17 @@ def demo15():
     print(tup1)
     #tup1[0] = 5
     l1.append(99)
-    print(tup1)
+    print(tup1[1][2])
+    l3 = [("A", 10), ("B", 20), ("C", 30)]
+    print(l3[1][1])
+    for i in range(len(l3)):
+        for j in range(len(l3[i])):
+            print(l3[i][j], end=" ")
+        print()
+    for tup in l3:
+        for item in tup:
+            print(item, end=" ")
+        print()
 
 def demo14():
     ROWS = 5
@@ -256,24 +281,39 @@ def demo5():
         nums[i] *= 2
         print(f"nums[{i}] = {nums[i]} after the doubling")
     print(f"nums list after the doubling =  {nums}")
+def change_list(l):
+    l.append(100)
 
 def demo4():
     nums1 = [1, 2, 3]
     nums2 = [4, 5, 6]
+    change_list(nums2)
     nums3 = nums1 + nums2
     print(nums3)
+    print("============")
     nums3 += nums1
     print(nums3)
     nums4 = nums3[3:7]
     print(nums4)
+    nums4 = nums3[3:]
+    print(nums4)
     nums4 = nums3[3:-1]
     print(nums4)
-    print(nums3[3:10])
+    print(nums3[3:20])
     print(nums3[:5])
     print(nums3[5:])
     print(f"nums list {nums3}")
     print(nums3[0:10:2])
-    print(nums3[8::-1])
+    print(nums3[::-1])
+    nums3.insert(3,99)
+    print("num3 = ", nums3)
+    nums3.append(88)
+    print("num3 = ", nums3)
+    nums3.extend([77, 66])  # num3 += [77, 66]
+    print("num3 = ", nums3)
+    print( 10 // 2 * 3)
+    print(5 == 5 or 8 == 8 and 1 == 2)
+    print("------")
 
 
 def demo3():
